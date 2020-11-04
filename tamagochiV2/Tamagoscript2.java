@@ -25,31 +25,22 @@ public class Tamagoscript2 {
 		int n = Clavier.lireInt();
 		switch(n) {
 		case 1 :{
-			myTama = new Dragon();
-		
-			
-			
+			myTama = new Dragon();	
 			break;
 		}
 		case 2 :{
 			myTama = new Chien();
-		
-		
-			
 			break;
 		}
 		case 3 : {
 			myTama = new Cat2();
-			
-			
-		
 		break;	
 		}
 		default :{
 			System.out.println("Pas compris recommence...");
 			animal();
-		}myTama.change();
 		}
+		}myTama.change();
 		
 	}
 	

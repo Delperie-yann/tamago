@@ -4,18 +4,17 @@ import java.util.Random;
 
 import outils.Clavier;
 
-
 public abstract class Tamago2 {
 //INITIALIZATION
 	// Variable
 	Tamago2 myTama;
-	
+
 	private String name;
 
 	String colorair[] = {
-			
-			"bleu","blanc", "gris", "jaune", "marron", "noir", "orange", "rose", "rouge", "vert", "violet" 
-			
+
+			"bleu", "blanc", "gris", "jaune", "marron", "noir", "orange", "rose", "rouge", "vert", "violet"
+
 	};
 
 	private String color = colorair[1];
@@ -32,23 +31,23 @@ public abstract class Tamago2 {
 	private double cleaning = 50;
 	private String variety;
 	String textRepeat[] = {
-			
-"[ Votre Tamago est", "Faut pas abuser non plus....", "\nJe n'ai pas compris...\n" 
 
-};
-	String stateList[] = { 
-			
+			"[ Votre Tamago est", "Faut pas abuser non plus....", "\nJe n'ai pas compris...\n"
+
+	};
+	String stateList[] = {
+
 			"entrain de sauter de joie,", "malheureux", "propre", "sale", "bien portant", "blessé",
-			
+
 			"bien nourri", "affamé", "très sale", "social", "normal", "associal"
-			
+
 	};
-	String nature[] = { 
-			
-			"un tamago", "Chat", "Dragon", "Chien" 
-			
+	String nature[] = {
+
+			"un tamago", "Chat", "Dragon", "Chien"
+
 	};
-	
+
 	// Initalise Tamago
 	public Tamago2() {
 
@@ -118,7 +117,7 @@ public abstract class Tamago2 {
 			// Change the color
 			System.out.println("Changer la couleur de ton Tamago?\n"
 					+ "\"Vous ne pouvez choisir que des couleurs de base en minuscule exemple : marron, vert\n");
-			
+
 			setColor();
 
 			change();
@@ -262,7 +261,7 @@ public abstract class Tamago2 {
 		System.out.println("Durée de vie restante : " + this.lifeTime);
 		System.out.println("Mask : " + this.mask);
 		System.out.println("Estomac : " + this.hunger);
-		System.out.println("Santer : " + this.health);
+		System.out.println("Santé : " + this.health);
 		System.out.println("Humeur :" + this.mood);
 		System.out.println("Social :" + this.social);
 		System.out.println("Puissance sexuel : " + this.sex);
@@ -270,12 +269,7 @@ public abstract class Tamago2 {
 		interaction();
 	}
 
-	// Controls the states (lifeTime, propete ect...) before returning an action
-	// menu.
-	public void interaction() {
-		stateFeeling();
-		durt();
-		dead();
+	public static void actionMenu() {
 		System.out.println("------------------------------------------------------"
 				+ "\nQue voulez vous faire faire à votre Tamago?\n"
 				+ "------------------------------------------------------\n");
@@ -289,113 +283,50 @@ public abstract class Tamago2 {
 		System.out.println("(8) Le tuer?");
 		System.out.println("(9) Lui teindre les poils?");
 		System.out.println("(10) Qu'il se detende?");
+
+	}
+
+	// Controls the states (lifeTime, propete ect...) before returning an action
+	// menu.
+	public void interaction() {
+		stateFeeling();
+		durt();
+		dead();
+		actionMenu();
 		int n = Clavier.lireInt();
 		switch (n) {
 		case 1: {
 			state();
 		}
 		case 2: {
-			// Ask for the quantity of food 1 or 2 and use the value
-			System.out.println("---------------------\nNourrir\n (1)-Un peu ou (2)-Beaucoup?\n---------------------");
-			int n1 = Clavier.lireInt();
-			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
-			} else {
-				if (n1 == 1) {
-					food(nbLim(n1));
-				} else {
-					food(nbLim(n1));
-				}
-			}
-
+			actionFood();
 			interaction();
 			break;
 		}
 		case 3: {
-			// Use value 1 or 2 to launch hand or shower
-			System.out.println("---------------------\n(1)-les mains ou (2)-la douche?\n---------------------");
-			int n1 = Clavier.lireInt();
-			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
-			} else {
-				if (n1 == 1) {
-					hand(nbLim(n1));
-				} else {
-					shower(nbLim(n1));
-				}
-			}
-
+			actionClean();
 			interaction();
 			break;
 		}
 		case 4: {
-			// Use value 1 or 2 to start kit or hospital
-			System.out.println("---------------------\n(1)-Trouse ou (2)-Hopital?\n---------------------");
-			int n1 = Clavier.lireInt();
-			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
-			} else {
-				if (n1 == 1) {
-					startKit(nbLim(n1));
-				} else {
-					hopital(nbLim(n1));
-				}
-
-			}
-
+			actionHealth();
 			interaction();
 			break;
 		}
 		case 5: {
-			// Use value 1 or 2 to start bestFriend or party
-			System.out.println("---------------------\n(1)-Meilleur amis ou (2)-Soirée?\n---------------------");
-			int n1 = Clavier.lireInt();
-			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
-			} else {
-				if (n1 == 1) {
-					bestFriend(nbLim(n1));
-				} else {
-					party(nbLim(n1));
-				}
-			}
 
+			actionSocial();
 			interaction();
 			break;
 		}
 		case 6: {
-			// Use value 1 or 2 to start nap or night
-			System.out.println("---------------------\n(1)-Sieste ou (2)-Nuit? 1 ou 2\n---------------------");
-			int n1 = Clavier.lireInt();
-			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
-			} else {
-				if (n1 == 1) {
-					nap(nbLim(n1));
-				} else {
-					night(nbLim(n1));
-				}
-			}
-
+			actionSlepp();
 			interaction();
 			break;
 
 		}
 		case 7: {
-			// Ask for the 'times', 1 or 2 of sport and use the value
-			System.out.println("---------------------\ncombien d'heures? (1) ou (2)");
-			int n1 = Clavier.lireInt();
-			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
-			} else {
-				if (n1 == 1) {
-					sport(nbLim(n1));
-				} else {
-					sport(nbLim(n1));
-				}
-
-			}
-
+			actionSport();
 			interaction();
 			break;
 		}
@@ -404,65 +335,71 @@ public abstract class Tamago2 {
 			System.out.println("Tu es sur? 'oui' ou 'non'");
 			String n1 = Clavier.lireString();
 			if (n1.equals("oui")) {
-				change();
-				System.out.println("\nASSASSIN VOUS AVEZ TUER VOTRE TAMAGO!!!");
+				System.out.println("\nASSASSIN VOUS AVEZ TUER VOTRE TAMAGO!!!\n\n\n\n");
+				Tamagoscript2.animal();
 			} else {
 				interaction();
 			}
-
 		}
-
 			break;
 		case 9: {
-			// Change the tint
-			
-		
-			System.out.println("Qu'elle est la couleur pour ses cheveux?\n"
-					+ "Vous ne pouvez choisir que des couleurs de base en minuscule exemple : marron, vert");
-			String n1 = Clavier.lireString();
-		
-			for (int a=0 ;a< colorair.length ; a++){ 
-						
-							colorair[a].equals(n1);
-							
-						}
-							
-							 {
-							
-							{
-						this.tint = n1;
-					}
-							
-				} 
+			actionTint();
 			interaction();
-			
 			break;
 		}
 		case 10: {
-			// Use value 1 or 2 to start relax or smoke
-			System.out.println("---------------------\n Quoi?\n(1)-Hamac ou (2)-Fumer\n");
-			int n1 = Clavier.lireInt();
-			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
-			} else {
-				if (n1 == 1) {
-					relax(nbLim(n1));
-				} else {
-					smoke(nbLim(n1));
-				}
-				interaction();
-				break;
-			}
-		}
+			actionRelax();
+			interaction();
 			break;
-
+		}
 		default: {
 			System.out.println(textRepeat[2]);
 			interaction();
-
-		}
 		}
 	}
+	}
+
+	// Ask for the quantity of food 1 or 2 and use the value
+	public abstract void actionFood();
+	// Use value 1 or 2 to launch hand or shower
+	public abstract void actionClean();
+
+	// Use value 1 or 2 to start kit or hospital
+	public abstract  void actionHealth();
+
+	// Use value 1 or 2 to start bestFriend or party
+	public abstract void actionSocial();
+
+	// Use value 1 or 2 to start nap or night
+	public abstract void actionSlepp();
+
+	// Ask for the 'times', 1 or 2 of sport and use the value
+	public abstract void actionSport();
+
+	// Change the tint
+	public void actionTint() {
+
+		System.out.println("Qu'elle est la couleur pour ses poils?\n"
+				+ "Vous ne pouvez choisir que des couleurs de base en minuscule exemple : marron, vert");
+		String n1 = Clavier.lireString();
+
+		for (int a = 0; a < colorair.length; a++) {
+
+			colorair[a].equals(n1);
+
+		}
+
+		{
+
+			{
+				this.tint = n1;
+			}
+
+		}
+	}
+
+	// Use value 1 or 2 to start relax or smoke
+	public abstract void actionRelax();
 
 // Returns the values of the tamago in a sentence
 	public void show() {
@@ -583,14 +520,14 @@ public abstract class Tamago2 {
 	}
 
 	// Applies growth and modifies action parameters
-	private void relax(int quant) {
+	protected void relax(int quant) {
 		aging();
 		setMood(bornC(getMood() + (5 * rand())));
 
 	}
 
 	// Applies growth and modifies action parameters
-	private void smoke(int quant) {
+	protected void smoke(int quant) {
 		aging();
 		setMood(bornC(getMood() + (5 * rand())));
 		setHunger(bornC(getHunger() - 1));
@@ -627,20 +564,20 @@ public abstract class Tamago2 {
 
 	// Dead condition
 	public void dead() {
-		if ((this.lifeTime < 0) || (this.age > 100) || (this.health == 0) || (this.hunger == 0)) {
+		if ((this.lifeTime < 0) || (this.age > 100) || (this.health < 0) || (this.hunger < 0)) {
 
-			System.out.println("\n[" + textRepeat[0] + " mort....]\n\n" + " Durée de vie restante : " + this.lifeTime
-					+ "\n Age: " + this.age + "\n Santer  :" + this.health);
-			menu();
+			System.out.println("\n" + textRepeat[0] + " mort....]\n" + "--------------------------------------" + "\n"
+					+ "Durée de vie restante : " + this.lifeTime + "\nAge: " + this.age + "\nSanter  :" + this.health
+					+ "\n" + "--------------------------------------" + "\n");
+			Tamagoscript2.animal();
 		}
 	}
 
 //STATE AND EMOTION
 	// Give general state
 	public void stateFeeling() {
-		System.out.println("---------------------------------------------\n"
-				+ ""+textRepeat[0] + " " + stateMood(mood) + " plutôt " + stateCleaning(cleaning) + " et "
-				+ stateHealth(health) + " ]\n");
+		System.out.println("---------------------------------------------\n" + "" + textRepeat[0] + " "
+				+ stateMood(mood) + " plutôt " + stateCleaning(cleaning) + " et " + stateHealth(health) + " ]\n");
 		System.out.println("[il est " + stateHunger(hunger) + " et il est plutôt " + stateSocial(social) + "]");
 	}
 
@@ -773,11 +710,7 @@ public abstract class Tamago2 {
 	 * @return the color
 	 */
 	public String getColor() {
-		
-	
-	
-	
-		
+
 		return color;
 	}
 
@@ -788,21 +721,16 @@ public abstract class Tamago2 {
 		System.out.println("Rentrer une couleur tout minuscule");
 		String n1;
 		do {
-			 n1 = Clavier.lireString();
+			n1 = Clavier.lireString();
 		}
-		
-		
-		
-		while (!n1.equals(colorair[0])&& !n1.equals(colorair[1]) && !n1.equals(colorair[2]) && !n1.equals(colorair[3]) && !n1.equals(colorair[4]) && !n1.equals(colorair[5]) && !n1.equals(colorair[6]) && !n1.equals(colorair[7]) && !n1.equals(colorair[8]) && !n1.equals(colorair[9]) && !n1.equals(colorair[10]) ); 
-			
-		 
-				this.color = n1;
-				
-		
 
-			
+		while (!n1.equals(colorair[0]) && !n1.equals(colorair[1]) && !n1.equals(colorair[2]) && !n1.equals(colorair[3])
+				&& !n1.equals(colorair[4]) && !n1.equals(colorair[5]) && !n1.equals(colorair[6])
+				&& !n1.equals(colorair[7]) && !n1.equals(colorair[8]) && !n1.equals(colorair[9])
+				&& !n1.equals(colorair[10]));
 
-		
+		this.color = n1;
+
 	}
 
 	/**
@@ -904,19 +832,17 @@ public abstract class Tamago2 {
 		System.out.println("Rentrer une couleur tout en minuscule");
 		String n1;
 		do {
-			 n1 = Clavier.lireString();
+			n1 = Clavier.lireString();
 		}
-		
-		
-		
-		while (!n1.equals(colorair[0])&& !n1.equals(colorair[1]) && !n1.equals(colorair[2]) && !n1.equals(colorair[3]) && !n1.equals(colorair[4]) && !n1.equals(colorair[5]) && !n1.equals(colorair[6]) && !n1.equals(colorair[7]) && !n1.equals(colorair[8]) && !n1.equals(colorair[9]) && !n1.equals(colorair[10]) ); 
-			
-		 
-				this.tint = n1;
-	
+
+		while (!n1.equals(colorair[0]) && !n1.equals(colorair[1]) && !n1.equals(colorair[2]) && !n1.equals(colorair[3])
+				&& !n1.equals(colorair[4]) && !n1.equals(colorair[5]) && !n1.equals(colorair[6])
+				&& !n1.equals(colorair[7]) && !n1.equals(colorair[8]) && !n1.equals(colorair[9])
+				&& !n1.equals(colorair[10]));
+
+		this.tint = n1;
+
 	}
-		
-	
 
 	/**
 	 * @return the sex
