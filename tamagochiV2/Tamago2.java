@@ -3,12 +3,12 @@ package tamagochiV2;
 import java.util.Random;
 
 import outils.Clavier;
-import tamagochi.Tamago;
+
 
 public abstract class Tamago2 {
 //INITIALIZATION
 	// Variable
-	Tamago myTama;
+	Tamago2 myTama;
 	
 	private String name;
 
@@ -33,7 +33,7 @@ public abstract class Tamago2 {
 	private String variety;
 	String textRepeat[] = {
 			
-"[Votre Tamago est", "Faut pas abuser non plus....", "\nJe n'ai pas compris...\n" 
+"[ Votre Tamago est", "Faut pas abuser non plus....", "\nJe n'ai pas compris...\n" 
 
 };
 	String stateList[] = { 
@@ -467,7 +467,7 @@ public abstract class Tamago2 {
 // Returns the values of the tamago in a sentence
 	public void show() {
 		System.out.println("Votre tamago s'appel " + name + ", c'est un " + variety + ", il est de couleur " + color
-				+ ", son age est de " + age + ", il peux encore vivre jusqu'à " + lifeTime + " années.\nIl est "
+				+ ", son age est de " + age + " ans, il peux encore vivre jusqu'à " + lifeTime + " années.\nIl est "
 				+ mask);
 	}
 
@@ -638,7 +638,8 @@ public abstract class Tamago2 {
 //STATE AND EMOTION
 	// Give general state
 	public void stateFeeling() {
-		System.out.println(textRepeat[0] + " " + stateMood(mood) + " plutôt " + stateCleaning(cleaning) + " et "
+		System.out.println("---------------------------------------------\n"
+				+ ""+textRepeat[0] + " " + stateMood(mood) + " plutôt " + stateCleaning(cleaning) + " et "
 				+ stateHealth(health) + " ]\n");
 		System.out.println("[il est " + stateHunger(hunger) + " et il est plutôt " + stateSocial(social) + "]");
 	}
@@ -900,7 +901,7 @@ public abstract class Tamago2 {
 	 * @param teinte the teinte to set
 	 */
 	public void setTint() {
-		System.out.println("Rentrer une couleur tout minuscule");
+		System.out.println("Rentrer une couleur tout en minuscule");
 		String n1;
 		do {
 			 n1 = Clavier.lireString();
@@ -912,12 +913,7 @@ public abstract class Tamago2 {
 			
 		 
 				this.tint = n1;
-				
-		
-
-			
-
-		
+	
 	}
 		
 	

@@ -1,6 +1,5 @@
 package tamagochiV2;
 
-import outils.Cat;
 import outils.Clavier;
 
 public class Tamagoscript2 {
@@ -20,35 +19,36 @@ public class Tamagoscript2 {
 	}
 
 	public static void animal() {
-		Tamago2 myTama;
+		
+		Tamago2 myTama = null;
 		System.out.println("Choississez votre type d'animal :\n(1) un Dragon\n(2) un Chien\n(3) un Chat\n");
 		int n = Clavier.lireInt();
 		switch(n) {
 		case 1 :{
 			myTama = new Dragon();
 		
-			myTama.change();
+			
 			
 			break;
 		}
 		case 2 :{
 			myTama = new Chien();
 		
-			myTama.change();
+		
 			
 			break;
 		}
 		case 3 : {
 			myTama = new Cat2();
 			
-			myTama.change();
+			
 		
 		break;	
 		}
 		default :{
 			System.out.println("Pas compris recommence...");
 			animal();
-		}
+		}myTama.change();
 		}
 		
 	}
