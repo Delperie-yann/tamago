@@ -8,7 +8,7 @@ public class Cat2 extends Tamago2{
 		
 		setName("Garfield");
 		setVariety("Chat");
-		setLifeTime(15);
+		setLifeTime(25);
 		setSize(1);
 		setMood(80.0);
 		setCleaning(80.0);

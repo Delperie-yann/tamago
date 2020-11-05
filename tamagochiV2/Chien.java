@@ -8,7 +8,7 @@ public class Chien extends Tamago2{
 		
 		setName("Scobydou");
 		setVariety("Chien");
-		setLifeTime(15);
+		setLifeTime(25);
 		setMood(80.0);
 		setCleaning(20.0);
 		setSocial(20.0);
