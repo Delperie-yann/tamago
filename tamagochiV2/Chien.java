@@ -41,10 +41,10 @@ public class Chien extends Tamago2{
 	// Ask for the quantity of food 1 or 2 and use the value
 		public void actionFood() {
 
-			System.out.println("---------------------\nNourrir\n (1)-Croquette ou (2)-Reste de viande?\n---------------------");
+			System.out.println(T33.textDog[0]);
 			int n1 = Clavier.lireInt();
 			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
+				System.out.println(T33.textRepeat[1] + "\n");
 			} else {
 				if (n1 == 1) {
 					food(nbLim(n1));
@@ -53,12 +53,13 @@ public class Chien extends Tamago2{
 				}
 			}
 		}
+		// Use value 1 or 2 to launch hand or shower
 		public void actionClean() {
 			
-			System.out.println("---------------------\n(1)-Les pâtes ou (2)-Le poils?\n---------------------");
+			System.out.println(T33.textDog[1]);
 			int n1 = Clavier.lireInt();
 			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
+				System.out.println(T33.textRepeat[1] + "\n");
 			} else {
 				if (n1 == 1) {
 					hand(nbLim(n1));
@@ -67,12 +68,13 @@ public class Chien extends Tamago2{
 				}
 			}
 		}
+		// Use value 1 or 2 to start kit or hospital
 		public void actionHealth() {
 
-			System.out.println("---------------------\n(1)-Anti-tique ou (2)-Véterinaire?\n---------------------");
+			System.out.println(T33.textDog[2]);
 			int n1 = Clavier.lireInt();
 			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
+				System.out.println(T33.textRepeat[1] + "\n");
 			} else {
 				if (n1 == 1) {
 					startKit(nbLim(n1));
@@ -82,12 +84,13 @@ public class Chien extends Tamago2{
 
 			}
 		}
+		// Use value 1 or 2 to start bestFriend or party
 		public void actionSocial() {
 
-			System.out.println("---------------------\n(1)-Le voisin de grillage ou (2)-Balade au parc?\n---------------------");
+			System.out.println(T33.textDog[3]);
 			int n1 = Clavier.lireInt();
 			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
+				System.out.println(T33.textRepeat[1] + "\n");
 			} else {
 				if (n1 == 1) {
 					bestFriend(nbLim(n1));
@@ -99,10 +102,10 @@ public class Chien extends Tamago2{
 		// Use value 1 or 2 to start nap or night
 		public void actionSlepp() {
 
-			System.out.println("---------------------\n(1)-Sieste ou (2)-Nuit? 1 ou 2\n---------------------");
+			System.out.println(T33.textDog[4]);
 			int n1 = Clavier.lireInt();
 			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
+				System.out.println(T33.textRepeat[1] + "\n");
 			} else {
 				if (n1 == 1) {
 					nap(nbLim(n1));
@@ -114,10 +117,10 @@ public class Chien extends Tamago2{
 		// Ask for the 'times', 1 or 2 of sport and use the value
 		public void actionSport() {
 
-			System.out.println("---------------------\nJoue à la baballe? (1) ou (2) heures");
+			System.out.println(T33.textDog[5]);
 			int n1 = Clavier.lireInt();
 			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
+				System.out.println(T33.textRepeat[1] + "\n");
 			} else {
 				if (n1 == 1) {
 					sport(nbLim(n1));
@@ -130,10 +133,10 @@ public class Chien extends Tamago2{
 		// Use value 1 or 2 to start relax or smoke
 		public void actionRelax() {
 
-			System.out.println("---------------------\n Quoi?\n(1)-Coussin ou (2)-Fumer\n");
+			System.out.println(T33.textDog[6]);
 			int n1 = Clavier.lireInt();
 			if (nbLim(n1) == 0) {
-				System.out.println(textRepeat[1] + "\n");
+				System.out.println(T33.textRepeat[1] + "\n");
 			} else {
 				if (n1 == 1) {
 					relax(nbLim(n1));
