@@ -2,7 +2,7 @@ package outils;
 
 import java.io.*;
 
-import tamagochiV2.T33;
+
 
 public class Clavier {
 	public static String lireString() {// lecture d'une chaine
