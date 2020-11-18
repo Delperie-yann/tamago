@@ -1,7 +1,7 @@
 # Tamago 
 ![tamago](https://delperie.needemand.com/images/tamago/tamago.jpg)
 
-##Réaliser un Tamagotchi
+#Réaliser un Tamagotchi
 
 > action : manger
 > action : aller au toilette
