@@ -1,3 +1,3 @@
 # tamago 
-![tamago](https://delperie.needemand.com/images/tamago.jpg)
+![tamago](https://delperie.needemand.com/images/tamago/tamago.jpg)
 
